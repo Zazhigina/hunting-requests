@@ -2,12 +2,9 @@ package ru.zazhig.getway.resource;
 
 import lombok.experimental.UtilityClass;
 import ru.zazhig.getway.request.dto.RequestDto;
-import ru.zazhig.getway.request.model.Request;
 import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.model.BaseResource;
 
-import java.time.LocalDate;
-import java.util.List;
 
 @UtilityClass
 public class ResourceMapper {

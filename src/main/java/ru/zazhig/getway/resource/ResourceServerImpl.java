@@ -8,8 +8,6 @@ import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.repository.ResourceBaseRepository;
 import ru.zazhig.getway.resource.repository.ResourceRepository;
 
-import java.time.LocalDate;
-
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ResourceServerImpl implements ResourceServer {
@@ -21,6 +19,6 @@ public class ResourceServerImpl implements ResourceServer {
 
     public BaseResource add(ResourceNewDto resourceNewDto) {
         Resource resource = resourceRepository.save(ResourceMapper.toResource(resourceNewDto));
-        return resourceBaseRepository.save(ResourceMapper.toResourceBase(resourceNewDto,resource));
+        return resourceBaseRepository.save(ResourceMapper.toResourceBase(resourceNewDto, resource));
     }
 }

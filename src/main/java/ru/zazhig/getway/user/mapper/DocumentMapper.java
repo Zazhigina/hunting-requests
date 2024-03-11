@@ -3,7 +3,6 @@ package ru.zazhig.getway.user.mapper;
 import lombok.experimental.UtilityClass;
 
 import ru.zazhig.getway.declaration.dto.DeclarationDto;
-import ru.zazhig.getway.user.dto.DocumentDto;
 import ru.zazhig.getway.user.model.Document;
 import ru.zazhig.getway.user.model.User;
 

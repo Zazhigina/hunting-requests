@@ -1,23 +1,16 @@
 package ru.zazhig.getway.declaration.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-import ru.zazhig.getway.declaration.State;
 import ru.zazhig.getway.declaration.Type;
 import ru.zazhig.getway.request.dto.RequestDto;
-import ru.zazhig.getway.user.dto.DocumentDto;
-import ru.zazhig.getway.user.dto.UserDto;
 
 import java.time.LocalDate;
 import java.util.Set;
-
-import static ru.zazhig.getway.declaration.State.NEW;
 
 
 @Data

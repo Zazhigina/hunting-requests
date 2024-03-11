@@ -2,14 +2,10 @@ package ru.zazhig.getway.request.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import org.hibernate.annotations.WhereJoinTable;
 import ru.zazhig.getway.declaration.Declaration;
 import ru.zazhig.getway.request.RequestStatus;
 import ru.zazhig.getway.resource.model.Resource;
-import ru.zazhig.getway.user.model.User;
 
-import java.util.Set;
 
 @Getter
 @Setter

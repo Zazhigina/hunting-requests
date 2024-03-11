@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.zazhig.getway.declaration.Declaration;
 import ru.zazhig.getway.declaration.dto.DeclarationDto;
 import ru.zazhig.getway.declaration.dto.DeclarationNew;
@@ -19,7 +18,6 @@ import ru.zazhig.getway.resource.ResourceMapper;
 import ru.zazhig.getway.resource.model.BaseResource;
 import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.repository.ResourceBaseRepository;
-import ru.zazhig.getway.resource.repository.ResourceRepository;
 import ru.zazhig.getway.user.dto.UserDto;
 import ru.zazhig.getway.user.mapper.DocumentMapper;
 import ru.zazhig.getway.user.mapper.UserMapper;
@@ -40,7 +38,6 @@ public class DeclarationServerImpl implements DeclarationServer {
     private final RequestRepository requestRepository;
     private final UserRepository userRepository;
     private final DocumentsRepository documentsRepository;
-    private final ResourceRepository resourceRepository;
     private final ResourceBaseRepository resourceBaseRepository;
 
     @Override

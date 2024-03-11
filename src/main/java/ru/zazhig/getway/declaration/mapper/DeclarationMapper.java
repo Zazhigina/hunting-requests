@@ -5,7 +5,6 @@ import ru.zazhig.getway.declaration.Declaration;
 import ru.zazhig.getway.declaration.State;
 import ru.zazhig.getway.declaration.Type;
 import ru.zazhig.getway.declaration.dto.DeclarationNew;
-import ru.zazhig.getway.request.dto.RequestDto;
 import ru.zazhig.getway.request.dto.RequestShotDto;
 import ru.zazhig.getway.user.dto.UserDto;
 import ru.zazhig.getway.user.model.Document;

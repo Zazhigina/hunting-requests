@@ -2,12 +2,6 @@ package ru.zazhig.getway.user.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ru.zazhig.getway.declaration.Declaration;
-
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter

@@ -12,16 +12,12 @@ import ru.zazhig.getway.declaration.repository.DeclarationRepository;
 import ru.zazhig.getway.request.RequestStatus;
 import ru.zazhig.getway.request.model.Request;
 import ru.zazhig.getway.request.repository.RequestRepository;
-import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.model.BaseResource;
 import ru.zazhig.getway.resource.repository.ResourceBaseRepository;
-import ru.zazhig.getway.resource.repository.ResourceRepository;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static ru.zazhig.getway.declaration.State.NEW;
 import static ru.zazhig.getway.declaration.State.VERIFIED;

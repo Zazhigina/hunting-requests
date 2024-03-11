@@ -5,7 +5,6 @@ import lombok.experimental.UtilityClass;
 import ru.zazhig.getway.declaration.dto.DeclarationDto;
 import ru.zazhig.getway.user.dto.UserDto;
 import ru.zazhig.getway.user.model.User;
-;
 
 @UtilityClass
 public class UserMapper {
