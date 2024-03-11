@@ -45,6 +45,7 @@ public class ReviewServiceImpl implements ReviewService {
             }
             log.info("Выключили проверку заявлений");
         } catch (Exception e) {
+            log.error(e.getMessage(), e);
         }
     }
 

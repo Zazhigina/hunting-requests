@@ -11,5 +11,5 @@ import java.util.List;
 public interface ResourceBaseRepository extends JpaRepository<BaseResource, Long> {
     @Query(value = "SELECT r FROM BaseResource AS r " +
             "JOIN Resource AS res ON r.resource.id = res.id")
-    public List<BaseResource> findBaseResources();
+    List<BaseResource> findBaseResources();
 }

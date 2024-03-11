@@ -48,7 +48,7 @@ public class DeclarationServerImpl implements DeclarationServer {
         List<BaseResource> resources = resourceBaseRepository.findBaseResources();
 
         Set<Request> request = declarationDto.getRequests().stream()
-                .map(e -> RequestMapper.toRequestNew(declaration, toResourceNew(ResourceMapper.toResource(e), resources, e), e))
+                .map(e -> RequestMapper.toRequestNew(declaration, toResourceNew(ResourceMapper.toResource(e), resources), e))
                 .collect(Collectors.toSet());
         declaration.setRequests(request);
         declarationRepository.save(declaration);
@@ -60,7 +60,7 @@ public class DeclarationServerImpl implements DeclarationServer {
         return DeclarationMapper.toDeclarationNew(declaration, userDto, requestShotDto);
     }
 
-    public Resource toResourceNew(Resource resource, List<BaseResource> resources, RequestDto requestDto) {
+    public Resource toResourceNew(Resource resource, List<BaseResource> resources) {
         for (BaseResource resource1 : resources) {
             if (resource1.getResource().getDistrict().equals(resource.getDistrict()) && resource1.getResource().getName().equals(resource.getName())) {
                 return resource1.getResource();
