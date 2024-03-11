@@ -1,7 +1,5 @@
-package ru.zazhig.getway.request.model;
+package ru.zazhig.getway.request.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +10,7 @@ import ru.zazhig.getway.request.RequestStatus;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestShot {
+public class RequestShotDto {
 
     private String district;//" : "санкт-петербург",
 

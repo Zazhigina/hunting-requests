@@ -1,42 +1,29 @@
-package ru.practicum.user.mapper;
+package ru.zazhig.getway.user.mapper;
 
 import lombok.experimental.UtilityClass;
-import ru.practicum.user.dto.NewUserRequest;
-import ru.practicum.user.dto.UserDto;
-import ru.practicum.user.dto.UserShortDto;
-import ru.practicum.user.model.User;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+import ru.zazhig.getway.declaration.dto.DeclarationDto;
+import ru.zazhig.getway.user.dto.UserDto;
+import ru.zazhig.getway.user.model.User;
+;
 
 @UtilityClass
 public class UserMapper {
-    public UserDto toUserDto(User user) {
-        return UserDto.builder()
-                .id(user.getId())
-                .name(user.getName())
-                .email(user.getEmail())
-                .build();
-    }
 
-    public User toUser(NewUserRequest newUserRequest) {
+    public User toUser(DeclarationDto declarationDto) {
         return User.builder()
-                .name(newUserRequest.getName())
-                .email(newUserRequest.getEmail())
+                .firstName(declarationDto.getFirstName())
+                .middleName(declarationDto.getMiddleName())
+                .lastName(declarationDto.getLastName())
                 .build();
     }
 
-    public UserShortDto toUserShortDto(User user) {
-        return UserShortDto.builder()
-                .id(user.getId())
-                .name(user.getName())
+    public UserDto toUser(User user) {
+        return UserDto.builder()
+                .firstName(user.getFirstName())
+                .middleName(user.getMiddleName())
+                .lastName(user.getLastName())
                 .build();
     }
 
-    public List<UserDto> toUserResponseDtoCollection(Collection<User> users) {
-        return users.stream()
-                .map(UserMapper::toUserDto)
-                .collect(Collectors.toList());
-    }
 }

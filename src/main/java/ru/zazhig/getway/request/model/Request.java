@@ -1,10 +1,11 @@
-package ru.zazhig.getway.request;
+package ru.zazhig.getway.request.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import org.hibernate.annotations.WhereJoinTable;
 import ru.zazhig.getway.declaration.Declaration;
+import ru.zazhig.getway.request.RequestStatus;
 import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.user.model.User;
 
@@ -27,9 +28,12 @@ public class Request {
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
+    @Column(name = "count")
+    @Builder.Default
+    private Long count = 0L;
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private RequestStatus status;
+    private RequestStatus status = RequestStatus.NEW;
 
 
 }

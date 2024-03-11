@@ -1,8 +1,13 @@
-package ru.practicum.user.model;
+package ru.zazhig.getway.user.model;
 
+import jakarta.persistence.*;
 import lombok.*;
+import ru.zazhig.getway.declaration.Declaration;
 
-import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,10 +20,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "first_name", length = 50, nullable = false)
+    private String firstName;
+    @Column(name = "middle_name", length = 50, nullable = false)
+    private String middleName;
+    @Column(name = "last_name", length = 50, nullable = false)
+    private String lastName;
 
-    @Column(name = "name", length = 50, nullable = false)
-    private String name;
-
-    @Column(name = "email", length = 100, nullable = false, unique = true)
-    private String email;
 }

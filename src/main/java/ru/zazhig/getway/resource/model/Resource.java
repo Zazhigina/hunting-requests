@@ -1,4 +1,4 @@
-package ru.zazhig.getway.resource;
+package ru.zazhig.getway.resource.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,15 +9,13 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "users", schema = "public")
+@Table(name = "resource", schema = "public")
 public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name_resource")
-    private String nameResource;
+    @Column(name = "name")
+    private String name;
     @Column(name = "district")
     private String district;
-    @Column(name = "quota")
-    private Long quota;
 }

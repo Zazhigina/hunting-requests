@@ -15,18 +15,18 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DocumentsDto {
+public class DocumentDto {
 
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate documentIssueDate;
+    private LocalDate issueDate;
     @NotNull(message = "number series id cannot be null.")
     @Positive(message = "number series id cannot be negative or zero.")
     @Size(min = 2, max = 2, message = "series cannot be less than 2 or more than 2.")
-    private Long seriesOfDocuments;
+    private Long series;
     @NotNull(message = "number cannot be null.")
     @Positive(message = "number cannot be negative or zero.")
     @Size(min = 8, max = 8, message = "number cannot be less than 8 or more than 8.")
-    private Long numberOfDocuments;// : "12345678"},
+    private Long number;// : "12345678"},
 
 }

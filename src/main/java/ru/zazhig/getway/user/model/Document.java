@@ -11,16 +11,16 @@ import java.time.LocalDate;
 @Entity
 @Builder
 @Table(name = "document", schema = "public")
-public class Documents {
+public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "document_issue_date", nullable = false)
-    private LocalDate documentIssueDate;
-    @Column(name = "series_of_document", nullable = false)
-    private Long seriesOfDocuments;
-    @Column(name = "number_of_document", nullable = false)
-    private Long numberOfDocuments;
+    @Column(name = "issue_date", nullable = false)
+    private LocalDate issueDate;
+    @Column(name = "series", nullable = false)
+    private Long series;
+    @Column(name = "number", nullable = false)
+    private Long number;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

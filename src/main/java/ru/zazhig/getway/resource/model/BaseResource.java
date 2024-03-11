@@ -11,16 +11,15 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "resource_base", schema = "public")
+@Table(name = "base_resource", schema = "public")
 
-public class ResourceBase {
+public class BaseResource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
-    private String district;
     @Column(name = "quota")
     private Long quota;
     @Column(name = "start_date")
