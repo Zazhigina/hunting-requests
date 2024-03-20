@@ -3,12 +3,9 @@ package ru.zazhig.getway.declaration;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import ru.zazhig.getway.request.model.Request;
 import ru.zazhig.getway.user.model.Document;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter

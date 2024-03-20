@@ -19,9 +19,7 @@ import ru.zazhig.getway.declaration.State;
 import ru.zazhig.getway.declaration.Type;
 import ru.zazhig.getway.declaration.dto.DeclarationDto;
 import ru.zazhig.getway.declaration.dto.DeclarationNew;
-import ru.zazhig.getway.declaration.repository.DeclarationRepository;
 import ru.zazhig.getway.declaration.server.DeclarationServer;
-import ru.zazhig.getway.declaration.server.DeclarationServerImpl;
 import ru.zazhig.getway.request.RequestStatus;
 import ru.zazhig.getway.request.dto.RequestDto;
 import ru.zazhig.getway.request.dto.RequestShotDto;
@@ -37,7 +35,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
