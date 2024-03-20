@@ -11,7 +11,6 @@ import ru.zazhig.getway.declaration.mapper.DeclarationMapper;
 import ru.zazhig.getway.declaration.repository.DeclarationRepository;
 import ru.zazhig.getway.request.dto.RequestShotDto;
 import ru.zazhig.getway.request.model.Request;
-import ru.zazhig.getway.request.dto.RequestDto;
 import ru.zazhig.getway.request.mapper.RequestMapper;
 import ru.zazhig.getway.request.repository.RequestRepository;
 import ru.zazhig.getway.resource.ResourceMapper;
@@ -42,27 +41,33 @@ public class DeclarationServerImpl implements DeclarationServer {
 
     @Override
     public DeclarationNew add(DeclarationDto declarationDto) {
-        User user = userRepository.save(UserMapper.toUser(declarationDto));
-        Document document = documentsRepository.save(DocumentMapper.toDocument(declarationDto, user));
-        Declaration declaration = DeclarationMapper.toDeclaration(declarationDto.getType(), document);
-        List<BaseResource> resources = resourceBaseRepository.findBaseResources();
+        List<User> users = userRepository.findAll();
+        List<Document> documents = documentsRepository.findAll();
+        User user = UserMapper.toUser(declarationDto);
+        Document document = DocumentMapper.toDocument(declarationDto, user);
+        if (users.stream().noneMatch(u -> u.equals(user))) {
+            userRepository.save(user);
+            documentsRepository.save(document);
+        } else {
+            user.setId(users.stream().filter(u -> u.equals(user)).findFirst().get().getId());
+            document.setId(documents.stream().filter(d -> d.getUser().equals(user)).findFirst().get().getId());
+        }
+        Declaration declaration = declarationRepository.save(DeclarationMapper.toDeclaration(declarationDto.getType(), document));
 
+        List<BaseResource> resources = resourceBaseRepository.findBaseResources();
         Set<Request> request = declarationDto.getRequests().stream()
-                .map(e -> RequestMapper.toRequestNew(declaration, toResourceNew(ResourceMapper.toResource(e), resources), e))
+                .map(e -> requestRepository.save(RequestMapper.toRequestNew(declaration, toResourceNew(ResourceMapper.toResource(e), resources), e)))
                 .collect(Collectors.toSet());
-        declaration.setRequests(request);
-        declarationRepository.save(declaration);
-        request.stream().map(requestRepository::save).collect(Collectors.toSet());
+
 
         UserDto userDto = UserMapper.toUser(user);
-
-        Set<RequestShotDto> requestShotDto = declaration.getRequests().stream().map(RequestMapper::toRequestDto).collect(Collectors.toSet());
+        Set<RequestShotDto> requestShotDto = request.stream().map(RequestMapper::toRequestShotDto).collect(Collectors.toSet());
         return DeclarationMapper.toDeclarationNew(declaration, userDto, requestShotDto);
     }
 
     public Resource toResourceNew(Resource resource, List<BaseResource> resources) {
         for (BaseResource resource1 : resources) {
-            if (resource1.getResource().getDistrict().equals(resource.getDistrict()) && resource1.getResource().getName().equals(resource.getName())) {
+            if (resource1.getResource().equals(resource)) {
                 return resource1.getResource();
             }
         }

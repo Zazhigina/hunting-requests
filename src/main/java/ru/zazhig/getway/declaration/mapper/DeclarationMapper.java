@@ -22,7 +22,6 @@ public class DeclarationMapper {
                 .createdOn(LocalDate.now())
                 .document(document)
                 .type(type)
-                .requests(Set.of())
                 .state(State.NEW)
                 .build();
     }

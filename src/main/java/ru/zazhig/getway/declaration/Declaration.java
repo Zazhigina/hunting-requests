@@ -34,14 +34,6 @@ public class Declaration {
     @JoinColumn(name = "document_id", nullable = false)
     private Document document;
 
-    @ManyToMany
-    @JoinTable(
-            name = "requests",
-            joinColumns = @JoinColumn(name = "declaration_id"),
-            inverseJoinColumns = @JoinColumn(name = "resource_id")
-    )
-    private Set<Request> requests =new HashSet<>();
-
     @Column(name = "state", nullable = false)
     @Enumerated(EnumType.STRING)
     private State state;

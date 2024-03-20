@@ -7,13 +7,21 @@ import ru.zazhig.getway.declaration.Declaration;
 import ru.zazhig.getway.declaration.State;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DeclarationRepository extends JpaRepository<Declaration, Long> {
-    @Query(value = "SELECT d FROM Declaration AS d LEFT JOIN Request as r ON d.id = r.declaration.id " +
-            "LEFT JOIN Resource AS res ON r.resource.id = res.id " +
+    @Query(value = "SELECT d FROM Declaration AS d LEFT JOIN Request as r ON d.id = r.id.declaration.id " +
+            "LEFT JOIN Resource AS res ON r.id.resource.id = res.id " +
             "LEFT JOIN Document AS doc ON d.document.id = doc.id " +
             "LEFT JOIN User AS u ON doc.user.id = u.id " +
             " WHERE d.state = ?1")
     List<Declaration> getAllByStateContaining(State state);
+
+    @Query(value = "SELECT d FROM Declaration AS d LEFT JOIN Request as r ON d.id = r.id.declaration.id " +
+            "LEFT JOIN Resource AS res ON r.id.resource.id = res.id " +
+            "LEFT JOIN Document AS doc ON d.document.id = doc.id " +
+            "LEFT JOIN User AS u ON doc.user.id = u.id " +
+            " WHERE d.state = ?1 AND u.id = ?2 ")
+    Optional<List<Declaration>> getAllByStateAndDocument_User(State state, Long userId);
 }

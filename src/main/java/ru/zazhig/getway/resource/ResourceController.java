@@ -19,9 +19,8 @@ public class ResourceController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-
     public BaseResource create(@RequestBody ResourceNewDto resourceNewDto) {
-        log.info("POST запрос на создание новой заявки");
+        log.info("POST запрос на создание нового ресурса");
         return resourceServer.add(resourceNewDto);
     }
 }

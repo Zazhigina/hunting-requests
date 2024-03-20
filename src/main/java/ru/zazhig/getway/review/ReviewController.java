@@ -17,10 +17,17 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @PatchMapping
+    @PatchMapping("/start")
     @ResponseStatus(HttpStatus.OK)
-    public void review(@RequestParam(name = "check", required = false) Boolean check) {
-        log.info("POST запрос на создание новой заявки");
-        reviewService.review(check);
+    public void start() {
+        log.info("PATCH запрос на включение проверки заявок");
+        reviewService.start();
+    }
+
+    @PatchMapping("/stop")
+    @ResponseStatus(HttpStatus.OK)
+    public void stop() {
+        log.info("PATCH запрос на выключение проверки заявок");
+        reviewService.stop();
     }
 }
