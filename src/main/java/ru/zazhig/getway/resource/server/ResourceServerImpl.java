@@ -1,8 +1,10 @@
-package ru.zazhig.getway.resource;
+package ru.zazhig.getway.resource.server;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.zazhig.getway.resource.mapper.ResourceMapper;
+import ru.zazhig.getway.resource.dto.ResourceNewDto;
 import ru.zazhig.getway.resource.model.BaseResource;
 import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.repository.ResourceBaseRepository;

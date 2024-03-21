@@ -1,4 +1,4 @@
-package ru.zazhig.getway.review;
+package ru.zazhig.getway.review.server;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -7,13 +7,13 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import ru.zazhig.getway.declaration.Declaration;
-import ru.zazhig.getway.declaration.Type;
+import ru.zazhig.getway.declaration.model.Declaration;
+import ru.zazhig.getway.declaration.model.Type;
 import ru.zazhig.getway.declaration.dto.DeclarationDto;
 import ru.zazhig.getway.declaration.mapper.DeclarationMapper;
 import ru.zazhig.getway.declaration.repository.DeclarationRepository;
 import ru.zazhig.getway.declaration.server.DeclarationServer;
-import ru.zazhig.getway.request.RequestStatus;
+import ru.zazhig.getway.request.model.RequestStatus;
 import ru.zazhig.getway.request.dto.RequestDto;
 import ru.zazhig.getway.request.model.Request;
 import ru.zazhig.getway.request.repository.RequestRepository;
@@ -29,8 +29,8 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Set;
 
-import static ru.zazhig.getway.declaration.State.NEW;
-import static ru.zazhig.getway.declaration.State.VERIFIED;
+import static ru.zazhig.getway.declaration.model.State.NEW;
+import static ru.zazhig.getway.declaration.model.State.VERIFIED;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -77,8 +77,22 @@ public class ReviewServiceImpl implements ReviewService {
 
     @PostConstruct
     @Scheduled(fixedDelay = 9000)
-    public void review() throws BadRequestException {
-        if (!skript) {
+    public void review() {
+        doScripts();
+        try {
+            while (start) {
+                log.info("Началась проверка заявлений");
+                doCheck();
+                log.info("Закончилась проверка заявлений");
+            }
+            log.info("Выключили проверку заявлений");
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void doScripts() {
+        if (!skript) { // скрипты для заполнения бд
             for (int i = 1; i <= 100; i++) {
                 int randInt = rand.nextInt(5);
                 int randIn1 = rand.nextInt(5);
@@ -100,16 +114,6 @@ public class ReviewServiceImpl implements ReviewService {
                 declarationServer.add(declarationDto);
             }
             skript = true;
-        }
-        try {
-            while (start) {
-                log.info("Началась проверка заявлений");
-                doCheck();
-                log.info("Закончилась проверка заявлений");
-            }
-            log.info("Выключили проверку заявлений");
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
         }
     }
 
@@ -138,7 +142,7 @@ public class ReviewServiceImpl implements ReviewService {
                 if (requestListConf.isPresent()) {
                     if (requestListConf.get().isEmpty()) {
                         BaseResource baseResource = baseResources.get(Math.toIntExact(request.getId().getResource().getId()) - 1);
-                        if (d.getCreatedOn().isBefore(baseResource.getEndDate()) &&
+                        if (d.getCreatedOn().isBefore(baseResource.getEndDate()) && //проверка в заявке ресуров с базовыми ресурсами на время начала и окончания и квоту
                                 d.getCreatedOn().isAfter(baseResource.getStartDate())) {
                             if (request.getCount() <= baseResource.getQuota()) {
                                 request.setStatus(RequestStatus.CONFIRMED);

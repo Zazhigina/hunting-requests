@@ -1,4 +1,4 @@
-package ru.zazhig.getway.resource;
+package ru.zazhig.getway.resource.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ru.zazhig.getway.resource.dto.ResourceNewDto;
 import ru.zazhig.getway.resource.model.BaseResource;
+import ru.zazhig.getway.resource.server.ResourceServer;
 
 
 @RestController

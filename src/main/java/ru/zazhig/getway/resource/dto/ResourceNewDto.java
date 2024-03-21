@@ -1,4 +1,4 @@
-package ru.zazhig.getway.resource;
+package ru.zazhig.getway.resource.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;

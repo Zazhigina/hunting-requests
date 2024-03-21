@@ -1,11 +1,11 @@
 package ru.zazhig.getway.request.mapper;
 
 import lombok.experimental.UtilityClass;
-import ru.zazhig.getway.declaration.Declaration;
+import ru.zazhig.getway.declaration.model.Declaration;
 import ru.zazhig.getway.declaration.repository.CourseRequestKey;
 import ru.zazhig.getway.request.dto.RequestShotDto;
 import ru.zazhig.getway.request.model.Request;
-import ru.zazhig.getway.request.RequestStatus;
+import ru.zazhig.getway.request.model.RequestStatus;
 import ru.zazhig.getway.request.dto.RequestDto;
 import ru.zazhig.getway.resource.model.Resource;
 

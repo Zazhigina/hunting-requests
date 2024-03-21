@@ -1,4 +1,4 @@
-package ru.zazhig.getway.request;
+package ru.zazhig.getway.request.model;
 
 public enum RequestStatus {
     NEW("НОВАЯ"),

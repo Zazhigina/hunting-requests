@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.zazhig.getway.declaration.State;
-import ru.zazhig.getway.declaration.Type;
+import ru.zazhig.getway.declaration.model.State;
+import ru.zazhig.getway.declaration.model.Type;
 import ru.zazhig.getway.request.dto.RequestShotDto;
 import ru.zazhig.getway.user.dto.UserDto;
 

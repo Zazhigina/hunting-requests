@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.zazhig.getway.declaration.Type;
+import ru.zazhig.getway.declaration.model.Type;
 import ru.zazhig.getway.request.dto.RequestDto;
 
 import java.time.LocalDate;

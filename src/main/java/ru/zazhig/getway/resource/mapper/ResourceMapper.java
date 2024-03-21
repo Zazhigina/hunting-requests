@@ -1,7 +1,8 @@
-package ru.zazhig.getway.resource;
+package ru.zazhig.getway.resource.mapper;
 
 import lombok.experimental.UtilityClass;
 import ru.zazhig.getway.request.dto.RequestDto;
+import ru.zazhig.getway.resource.dto.ResourceNewDto;
 import ru.zazhig.getway.resource.model.Resource;
 import ru.zazhig.getway.resource.model.BaseResource;
 

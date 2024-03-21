@@ -1,4 +1,4 @@
-package ru.zazhig.getway.declaration;
+package ru.zazhig.getway.declaration.model;
 
 public enum Type {
     MASS_EVENTS("Массовые виды"),

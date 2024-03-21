@@ -2,7 +2,7 @@ package ru.zazhig.getway.declaration.repository;
 
 import jakarta.persistence.*;
 import lombok.*;
-import ru.zazhig.getway.declaration.Declaration;
+import ru.zazhig.getway.declaration.model.Declaration;
 import ru.zazhig.getway.resource.model.Resource;
 
 import java.io.Serializable;

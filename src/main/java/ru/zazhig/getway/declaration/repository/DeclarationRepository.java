@@ -3,8 +3,8 @@ package ru.zazhig.getway.declaration.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ru.zazhig.getway.declaration.Declaration;
-import ru.zazhig.getway.declaration.State;
+import ru.zazhig.getway.declaration.model.Declaration;
+import ru.zazhig.getway.declaration.model.State;
 
 import java.util.List;
 import java.util.Optional;

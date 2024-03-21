@@ -1,4 +1,4 @@
-package ru.zazhig.getway.declaration;
+package ru.zazhig.getway.declaration.model;
 
 public enum State {
     NEW("НОВАЯ"),

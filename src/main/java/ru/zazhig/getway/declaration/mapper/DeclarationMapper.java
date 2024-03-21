@@ -1,9 +1,9 @@
 package ru.zazhig.getway.declaration.mapper;
 
 import lombok.experimental.UtilityClass;
-import ru.zazhig.getway.declaration.Declaration;
-import ru.zazhig.getway.declaration.State;
-import ru.zazhig.getway.declaration.Type;
+import ru.zazhig.getway.declaration.model.Declaration;
+import ru.zazhig.getway.declaration.model.State;
+import ru.zazhig.getway.declaration.model.Type;
 import ru.zazhig.getway.declaration.dto.DeclarationNew;
 import ru.zazhig.getway.request.dto.RequestShotDto;
 import ru.zazhig.getway.user.dto.UserDto;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-import static ru.zazhig.getway.declaration.State.REVIEW;
+import static ru.zazhig.getway.declaration.model.State.REVIEW;
 
 @UtilityClass
 public class DeclarationMapper {

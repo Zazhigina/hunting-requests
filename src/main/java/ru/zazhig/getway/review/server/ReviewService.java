@@ -1,4 +1,4 @@
-package ru.zazhig.getway.review;
+package ru.zazhig.getway.review.server;
 
 public interface ReviewService {
 

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.zazhig.getway.request.RequestStatus;
+import ru.zazhig.getway.request.model.RequestStatus;
 
 @Data
 @Builder
